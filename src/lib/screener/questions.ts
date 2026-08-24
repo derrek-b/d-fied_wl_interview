@@ -279,7 +279,7 @@ export const MAIN_STEPS: Step[] = [
 	{
 		id: 'D3',
 		type: 'multi',
-		prompt: 'Which platforms have you used?',
+		prompt: 'Have you used any of these platforms to help manage or automate your positions?',
 		other: true,
 		options: [
 			...opts([
@@ -316,13 +316,13 @@ export const MAIN_STEPS: Step[] = [
 		type: 'open',
 		minChars: 80,
 		prompt: 'What do they handle that you wouldn’t want to go back to doing yourself?',
-		visible: (a) => a.D4 === 'active'
+		visible: (a) => a.D4 === 'active' && !usedNoPlatforms(a)
 	},
 	{
 		id: 'D5b',
 		type: 'multi',
 		prompt: 'What justifies what they cost you?',
-		visible: (a) => a.D4 === 'active',
+		visible: (a) => a.D4 === 'active' && !usedNoPlatforms(a),
 		options: opts([
 			'Saves me time',
 			'Executes faster than I can',
@@ -337,13 +337,13 @@ export const MAIN_STEPS: Step[] = [
 		type: 'open',
 		minChars: 80,
 		prompt: 'What happened that made you decide to stop using them?',
-		visible: (a) => a.D4 === 'stopped' || a.D4 === 'brief'
+		visible: (a) => (a.D4 === 'stopped' || a.D4 === 'brief') && !usedNoPlatforms(a)
 	},
 	{
 		id: 'D5d',
 		type: 'multi',
 		prompt: 'Closest reason?',
-		visible: (a) => a.D4 === 'stopped' || a.D4 === 'brief',
+		visible: (a) => (a.D4 === 'stopped' || a.D4 === 'brief') && !usedNoPlatforms(a),
 		options: opts([
 			'Returns didn’t justify the fees',
 			'They did something I didn’t expect',
@@ -414,7 +414,7 @@ export const MAIN_STEPS: Step[] = [
 		id: 'E3a',
 		type: 'open',
 		prompt: 'What would it depend on?',
-		visible: (a) => a.E3 === 'depends'
+		visible: (a) => a.E3 === 'depends' && a.E1 !== 'neither'
 	},
 	{
 		id: 'E4',
@@ -747,7 +747,7 @@ export const CONTACT_STEPS: Step[] = [
 	{
 		id: 'I2_network',
 		type: 'single',
-		prompt: 'Which network is your wallet on?',
+		prompt: 'Which network is your wallet on (for USDC transfer if you win a raffle)?',
 		options: [
 			opt('Solana', 'solana'),
 			opt('EVM (Ethereum, Base, Arbitrum, BNB Chain, etc.)', 'evm')
@@ -778,8 +778,8 @@ export const CONTACT_STEPS: Step[] = [
 	{
 		id: 'I3',
 		type: 'single',
-		prompt: 'Open to a Zoom/Meets follow-up conversation?',
-		helper: 'Everyone who does a follow-up interview will be entered in the $100 USDC raffle.',
+		prompt:
+			'Open to a Zoom/Meets follow-up conversation? Everyone who does one is entered in the $100 USDC raffle.',
 		options: opts(['Yes', 'No'])
 	}
 ];

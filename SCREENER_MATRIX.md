@@ -132,7 +132,7 @@ _Assumptions 1 and 2._
 
 ---
 
-**D3.** Which platforms have you used? (multi)
+**D3.** Have you used any of these platforms to help manage or automate your positions? (multi)
 `vfat.io` / `Krystal` / `Revert` / `Arrakis` / `Gamma` / `Steer` / `ICHI` / `Kamino` / `HawkFi` / `Charm` / `Beefy` / `Other` / `None`
 
 **D4.** Still using them? — only asked if D3 named at least one real platform (or `Other`).
@@ -315,7 +315,7 @@ Then Section I.
 
 **I1.** Email or Telegram
 
-**I2_network.** Which network is your wallet on?
+**I2_network.** Which network is your wallet on (for USDC transfer if you win a raffle)?
 `Solana` / `EVM (Ethereum, Base, Arbitrum, BNB Chain, etc.)`
 
 **I2_chain.** Which EVM chain would you like your USDC sent on? _(shown only if I2_network = EVM)_
@@ -329,10 +329,8 @@ Validated by format, not just presence — `0x` + 40 hex characters for any EVM 
 
 Tron and Hyperliquid were considered and left out of v1: Tron's addresses are Base58 (`T...`), not the `0x` hex format the rest of "EVM" shares, so it isn't a drop-in addition to this chain list — it would need its own separate address-format branch. Hyperliquid's HyperEVM is technically a normal `0x`-format EVM chain, but was left out on audience grounds (smaller, newer chain relative to Base/Arbitrum/BSC for where this respondent pool is likely to already hold funds), not a technical one — revisit if the actual respondent pool skews toward Hyperliquid-native traders.
 
-**I3.** Open to a Zoom/Meets follow-up conversation?
+**I3.** Open to a Zoom/Meets follow-up conversation? Everyone who does one is entered in the $100 USDC raffle.
 `Yes` / `No`
-
-> Everyone who does a follow-up interview will be entered in the $100 USDC raffle.
 
 ---
 

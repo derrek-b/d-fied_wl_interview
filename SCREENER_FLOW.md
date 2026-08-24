@@ -74,7 +74,7 @@ nested inside each other — everyone answers D3 regardless of what they picked 
      - **D2e** — Which is closest? (single)
      - **D2f** — Please provide details. `[80]`
    - _(all three branches converge back into the same next question — D3)_
-3. **D3** — Which named platforms have you used? (multi — vfat.io, Krystal, Revert,
+3. **D3** — Have you used any of these platforms to help manage or automate your positions? (multi — vfat.io, Krystal, Revert,
    Arrakis, Gamma, Steer, ICHI, Kamino, HawkFi, Charm, Beefy, None, Other). **Asked to
    everyone above, independent of D1** — including people who said "Nothing fit" or
    "Never looked."
@@ -148,7 +148,7 @@ hypothetical); E1 and E4 stay as the only population-level read on Assumptions 3
 of the A1 branch.
 
 1. **I1** — Email or Telegram
-2. **I2_network** — Which network is your wallet on? (single — Solana / EVM)
+2. **I2_network** — Which network is your wallet on (for USDC transfer if you win a raffle)? (single — Solana / EVM)
    - **IF "EVM":**
      - **I2_chain** — Which EVM chain would you like your USDC sent on? (single
        — Ethereum Mainnet, Base, Arbitrum, BNB Chain)
@@ -156,7 +156,7 @@ of the A1 branch.
    selected above — `0x` + 40 hex for EVM, base58 charset 32–44 chars for
    Solana; prompt names the specific chain, e.g. "Your Arbitrum wallet
    address")
-4. **I3** — Open to a Zoom/Meets follow-up conversation? (single — Yes / No)
+4. **I3** — Open to a Zoom/Meets follow-up conversation? Everyone who does one is entered in the $100 USDC raffle. (single — Yes / No)
 
 → Thank-you screen.
 
