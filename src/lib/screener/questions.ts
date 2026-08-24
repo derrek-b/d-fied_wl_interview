@@ -115,7 +115,7 @@ export const MAIN_STEPS: Step[] = [
 	{
 		id: 'B6',
 		type: 'single',
-		prompt: 'Whose capital is it?',
+		prompt: 'Whose capital have you deployed?',
 		options: opts(['My own', 'A fund or clients', 'A DAO or protocol treasury', 'A mix'])
 	},
 	{
@@ -135,7 +135,7 @@ export const MAIN_STEPS: Step[] = [
 	{
 		id: 'C1',
 		type: 'multi',
-		prompt: 'Which of these have you ever run?',
+		prompt: 'Which of these strategies have you ever run?',
 		options: opts([
 			'Simple full-range or CPMM pools',
 			'Concentrated liquidity, managing in and out of range',
@@ -198,7 +198,7 @@ export const MAIN_STEPS: Step[] = [
 	{
 		id: 'D7',
 		type: 'single',
-		prompt: 'Do you currently pay fees to any platform or tool for LP management?',
+		prompt: 'Do you currently pay fees to any platform or tool for LP management or automation?',
 		options: opts(['Yes', 'No'])
 	},
 	{
@@ -394,7 +394,7 @@ export const MAIN_STEPS: Step[] = [
 		prompt:
 			'If you are or were looking to fully automate your DeFi strategies, which would you prefer?',
 		options: [
-			opt('I set the parameters, something else executes them', 'set_parameters'),
+			opt('I set the parameters, something else automates the execution', 'set_parameters'),
 			opt('I hand off the strategy decisions entirely', 'hand_off'),
 			opt('Neither, I want to keep doing it myself', 'neither')
 		]
@@ -778,8 +778,8 @@ export const CONTACT_STEPS: Step[] = [
 	{
 		id: 'I3',
 		type: 'single',
-		prompt: 'Open to a 30 minute follow-up conversation?',
-		helper: 'Everyone who does a follow-up interview is entered for the $100 USDC.',
+		prompt: 'Open to a Zoom/Meets follow-up conversation?',
+		helper: 'Everyone who does a follow-up interview will be entered in the $100 USDC raffle.',
 		options: opts(['Yes', 'No'])
 	}
 ];

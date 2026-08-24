@@ -14,8 +14,8 @@
 	</div>
 
 	<p class="tagline">
-		DeFi management questionaire. Help shape the future of DeFi. Take a shot at $25 USDC. The best
-		respondents will have a chance at $100 USDC.
+		DeFi management questionnaire. Help shape the future of DeFi. Take a shot at $25 USDC.
+		Participate in a follow-up interview for a chance at $100 USDC.
 	</p>
 
 	<a class="cta" href={resolve('/interview')}>Start the Interview</a>

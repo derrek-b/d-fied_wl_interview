@@ -49,7 +49,7 @@ Clicks only. Sort fields.
 **B5.** Total currently deployed across all positions:
 `$0 right now` / `Under $1K` / `$1K to $10K` / `$10K to $50K` / `$50K to $250K` / `Over $250K`
 
-**B6.** Whose capital?
+**B6.** Whose capital have you deployed?
 `My own` / `A fund or clients` / `A DAO or protocol treasury` / `A mix`
 
 **B7.** Positions open at once, typically:
@@ -62,7 +62,7 @@ Clicks only. Sort fields.
 
 ## Section C: What you actually do
 
-**C1.** Which of these have you ever run? (multi, checkbox only)
+**C1.** Which of these strategies have you ever run? (multi, checkbox only)
 `Simple full-range or CPMM pools` / `Concentrated liquidity, managing in and out of range` / `Hedged or delta-neutral positions` / `Lend → borrow → LP loops` / `Leveraged LP` / `Active market making` / `Other`
 
 **C2.** What does it actually take to keep the strategies you picked running well — and how often do you have to step in? **[80]**
@@ -96,7 +96,7 @@ _Open only._
 
 _Assumptions 1 and 2._
 
-**D7.** Do you currently pay fees to any platform or tool for LP management?
+**D7.** Do you currently pay fees to any platform or tool for LP management or automation?
 `Yes` / `No`
 
 > Moved to the front of the section. It used to close Section D, but by then its answer was
@@ -177,7 +177,7 @@ _Assumptions 3 and 4. These two pull against each other and the form should make
 Trimmed from 8 questions to 3. This screener was already pushing the length a respondent will tolerate, and most of what Section E used to ask is answered better elsewhere: E2/E2a and E5/E6 are duplicated — more richly, against revealed behavior rather than a hypothetical — by the Stage 2 script (`FOLLOW-UP_FRUSTRATED_MANAGER.md`, Sections 7 and 8; the routing rubric already said as much about E1 vs. Section 7 before this cut). E1 and E4 stay because Stage 2 only reaches whoever opts into a follow-up call, and their aggregate skew is the only population-level read this study gets on Assumptions 3 and 4 — without them there'd be no way to test those two assumptions against the full respondent pool, only the self-selected subset who agree to talk.
 
 **E1.** If you are or were looking to fully automate your DeFi strategies, which would you prefer?
-`I set the parameters, something else executes them` / `I hand off the strategy decisions entirely` / `Neither, I want to keep doing it myself`
+`I set the parameters, something else automates the execution` / `I hand off the strategy decisions entirely` / `Neither, I want to keep doing it myself`
 
 > Reworded to give the question a concrete frame — "which is closer to what you'd want" had no stated context to react against.
 
@@ -329,10 +329,10 @@ Validated by format, not just presence — `0x` + 40 hex characters for any EVM 
 
 Tron and Hyperliquid were considered and left out of v1: Tron's addresses are Base58 (`T...`), not the `0x` hex format the rest of "EVM" shares, so it isn't a drop-in addition to this chain list — it would need its own separate address-format branch. Hyperliquid's HyperEVM is technically a normal `0x`-format EVM chain, but was left out on audience grounds (smaller, newer chain relative to Base/Arbitrum/BSC for where this respondent pool is likely to already hold funds), not a technical one — revisit if the actual respondent pool skews toward Hyperliquid-native traders.
 
-**I3.** Open to a 30 minute follow-up conversation?
+**I3.** Open to a Zoom/Meets follow-up conversation?
 `Yes` / `No`
 
-> Everyone who does a follow-up interview is entered for the $100 USDC.
+> Everyone who does a follow-up interview will be entered in the $100 USDC raffle.
 
 ---
 

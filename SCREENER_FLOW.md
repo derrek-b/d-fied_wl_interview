@@ -23,7 +23,7 @@ Legend:
 3. **B3** — DEXes used? (multi)
 4. **B4** — Largest single position ever opened? (single)
 5. **B5** — Total currently deployed across all positions? (single)
-6. **B6** — Whose capital is it? (single)
+6. **B6** — Whose capital have you deployed? (single)
 7. **B7** — How many positions open at once, typically? (single)
 8. **B8** — How recently have you had open positions? (single)
 
@@ -33,7 +33,7 @@ Legend:
 
 5 or 6 questions. One conditional skip.
 
-1. **C1** — Which of these have you ever run? (multi)
+1. **C1** — Which of these strategies have you ever run? (multi)
 2. **C2** — What does it actually take to keep the strategies you picked running well —
    and how often do you have to step in? `[80]`
 3. **IF C1 has more than one strategy checked:**
@@ -56,7 +56,7 @@ Legend:
 7 core questions plus two **separate, independent** branch points. D1 and D3/D4 are not
 nested inside each other — everyone answers D3 regardless of what they picked on D1.
 
-1. **D7** — Do you currently pay fees to any platform or tool for LP management?
+1. **D7** — Do you currently pay fees to any platform or tool for LP management or automation?
    (single — Yes / No). **Moved to the front of the section** — a clean, always-answered
    quantify-first anchor, asked before the branch-specific narrative starts. It used to
    close the section, but by then its answer was already substantially implied by D5b or
@@ -156,7 +156,7 @@ of the A1 branch.
    selected above — `0x` + 40 hex for EVM, base58 charset 32–44 chars for
    Solana; prompt names the specific chain, e.g. "Your Arbitrum wallet
    address")
-4. **I3** — Open to a 30 minute follow-up conversation? (single — Yes / No)
+4. **I3** — Open to a Zoom/Meets follow-up conversation? (single — Yes / No)
 
 → Thank-you screen.
 
