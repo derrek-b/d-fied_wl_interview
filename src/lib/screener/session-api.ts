@@ -7,9 +7,13 @@ type UpdatePayload = {
 	pastedFields?: string[];
 };
 
-export async function createSession(): Promise<string | null> {
+export async function createSession(source?: string): Promise<string | null> {
 	try {
-		const res = await fetch('/api/session', { method: 'POST' });
+		const res = await fetch('/api/session', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ source })
+		});
 		if (!res.ok) return null;
 		const { id } = await res.json();
 		return id;

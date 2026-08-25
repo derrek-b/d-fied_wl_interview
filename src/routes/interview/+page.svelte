@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { SvelteSet } from 'svelte/reactivity';
+	import { page } from '$app/state';
 	import Logo from '$lib/components/Logo.svelte';
 	import ProgressBar from '$lib/components/screener/ProgressBar.svelte';
 	import StepField from '$lib/components/screener/StepField.svelte';
@@ -26,7 +27,8 @@
 
 	async function ensureSession() {
 		if (sessionId) return;
-		sessionId = await createSession();
+		const source = page.url.searchParams.get('src')?.trim() || undefined;
+		sessionId = await createSession(source);
 		if (sessionId) {
 			saveDraft({ answers, currentStepId, sessionId });
 		}

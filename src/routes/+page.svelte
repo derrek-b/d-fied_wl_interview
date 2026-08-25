@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
 	import Logo from '$lib/components/Logo.svelte';
 </script>
@@ -18,7 +19,8 @@
 		Participate in a follow-up interview for a chance at $100 USDC.
 	</p>
 
-	<a class="cta" href={resolve('/interview')}>Start the Interview</a>
+	<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+	<a class="cta" href={resolve('/interview') + page.url.search}>Start the Interview</a>
 </main>
 
 <style>

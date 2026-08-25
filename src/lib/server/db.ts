@@ -24,10 +24,19 @@ db.exec(`
 		pasted_fields TEXT NOT NULL DEFAULT '[]',
 		min_length_flag_count INTEGER,
 		duplicate_of_session_id TEXT,
-		duplicate_reason TEXT
+		duplicate_reason TEXT,
+		source TEXT
 	);
 	CREATE INDEX IF NOT EXISTS idx_sessions_completed ON sessions(completed_at);
 `);
+
+// Pre-existing deployments already have a sessions table without this
+// column — CREATE TABLE IF NOT EXISTS above is a no-op for them, so add it
+// explicitly. Safe to run on every startup: skipped once the column exists.
+const sessionColumns = db.prepare(`PRAGMA table_info(sessions)`).all() as { name: string }[];
+if (!sessionColumns.some((c) => c.name === 'source')) {
+	db.exec(`ALTER TABLE sessions ADD COLUMN source TEXT`);
+}
 
 export type SessionPatch = {
 	answers: Answers;
@@ -53,6 +62,7 @@ type SessionRow = {
 	min_length_flag_count: number | null;
 	duplicate_of_session_id: string | null;
 	duplicate_reason: string | null;
+	source: string | null;
 };
 
 function mergeStepData(
@@ -72,13 +82,14 @@ function mergeStepData(
 	return { stepTimings, pastedFields: [...pastedFields] };
 }
 
-export function createSession(): { id: string } {
+export function createSession(source?: string): { id: string } {
 	const id = randomUUID();
 	const now = new Date().toISOString();
-	db.prepare(`INSERT INTO sessions (id, started_at, updated_at) VALUES (?, ?, ?)`).run(
+	db.prepare(`INSERT INTO sessions (id, started_at, updated_at, source) VALUES (?, ?, ?, ?)`).run(
 		id,
 		now,
-		now
+		now,
+		source ?? null
 	);
 	return { id };
 }
