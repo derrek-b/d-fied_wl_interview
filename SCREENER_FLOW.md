@@ -31,17 +31,19 @@ Legend:
 
 ## Section C — What you run
 
-5 or 6 questions. One conditional skip.
+6 or 8 questions. One conditional skip.
 
 1. **C1** — Which of these strategies have you ever run? (multi)
-2. **C2** — What does it actually take to keep the strategies you picked running well —
-   and how often do you have to step in? `[80]`
-3. **IF C1 has more than one strategy checked:**
-   - **C3** — Which of your selected strategies has worked best, and why do you think
-     that was? `[80]` — required, skipped entirely (not just optional) if only one
-     strategy was checked on C1
-4. **C4** — How do you track your deployed positions? (multi)
-5. **C6** — Tell us about the last time managing a position cost you money, time, or
+2. **C2** — What does keeping your positions running well actually involve? (multi)
+3. **C2a** — How often do you have to do any of the actions you selected? (single)
+4. **IF C1 has more than one strategy checked:**
+   - **C3** — Which of your selected strategies has worked best? (single — options are
+     exactly whichever of C1's picks the respondent checked) — skipped entirely (not
+     just optional) if only one strategy was checked on C1
+   - **C3a** — Why did it work better than your other strategies? (multi) — same
+     visibility as C3
+5. **C4** — How do you track your deployed positions? (multi)
+6. **C6** — Tell us about the last time managing a position cost you money, time, or
    sleep. `[80]`
 6. **C6a** — Closest description of what went wrong? (multi)
 
@@ -135,9 +137,9 @@ hypothetical); E1 and E4 stay as the only population-level read on Assumptions 3
 3 questions, straight line. Last before Contact, so it doesn't anchor earlier answers.
 
 1. **G1** — Forget LP management. What's the most annoying part of using DeFi
-   generally, for you? (open)
+   generally, for you? (open, optional)
 2. **G2** — If someone built one thing that made your on-chain life easier, what
-   would it be? (open)
+   would it be? (open, optional)
 3. **G3** — Anything we should have asked and didn't? (open, optional)
 
 ---

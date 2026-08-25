@@ -135,8 +135,8 @@
 		</div>
 		<h1 class="thanks">Thanks — you’re in.</h1>
 		<p class="thanks-copy">
-			You’re entered to win $25 USDC. If you are selected and participate in a follow-up
-			conversation you will receive an entry in the $100 USDC raffle.
+			You’re entered to win $25 USDC. If you are selected and complete a follow-up conversation you
+			will receive an entry in the $100 USDC raffle.
 		</p>
 	{:else if currentStep}
 		<div class="brand small">

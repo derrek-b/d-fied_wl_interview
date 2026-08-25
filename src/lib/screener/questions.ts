@@ -40,6 +40,7 @@ export const GATE_STEP: Step = {
 const G2_STEP: Step = {
 	id: 'G2',
 	type: 'open',
+	optional: true,
 	prompt: 'If someone built one thing that made your on-chain life easier, what would it be?'
 };
 
@@ -49,6 +50,17 @@ const G3_STEP: Step = {
 	optional: true,
 	prompt: 'Anything we should have asked and didn’t?'
 };
+
+// Shared with C3 below — C3's option list is drawn from whichever of these
+// the respondent actually checked, so it can't be redefined independently.
+const C1_OPTIONS: Option[] = opts([
+	'Simple full-range or CPMM pools',
+	'Concentrated liquidity, managing in and out of range',
+	'Hedged or delta-neutral positions',
+	'Lend → borrow → LP loops',
+	'Leveraged LP',
+	'Active market making'
+]);
 
 /** Reachable only when A1 === 'yes'. */
 export const MAIN_STEPS: Step[] = [
@@ -136,28 +148,55 @@ export const MAIN_STEPS: Step[] = [
 		id: 'C1',
 		type: 'multi',
 		prompt: 'Which of these strategies have you ever run?',
-		options: opts([
-			'Simple full-range or CPMM pools',
-			'Concentrated liquidity, managing in and out of range',
-			'Hedged or delta-neutral positions',
-			'Lend → borrow → LP loops',
-			'Leveraged LP',
-			'Active market making'
-		])
+		options: C1_OPTIONS
 	},
 	{
 		id: 'C2',
-		type: 'open',
-		minChars: 80,
-		prompt:
-			'What does it actually take to keep the strategies you picked running well — and how often do you have to step in?'
+		type: 'multi',
+		prompt: 'What does keeping your positions running well actually involve?',
+		options: opts([
+			'Rebalancing or adjusting ranges',
+			'Monitoring price or position health',
+			'Managing gas costs',
+			'Tracking P&L manually',
+			'Coordinating across chains or protocols',
+			'Compounding fees or rewards'
+		])
+	},
+	{
+		id: 'C2a',
+		type: 'single',
+		prompt: 'How often do you have to do any of the actions you selected?',
+		options: opts(['Daily', 'A few times a week', 'Weekly', 'Monthly or less', 'Rarely'])
 	},
 	{
 		id: 'C3',
-		type: 'open',
-		minChars: 80,
-		prompt: 'Which of your selected strategies has worked best, and why do you think that was?',
-		visible: (a) => Array.isArray(a.C1) && a.C1.length > 1
+		type: 'single',
+		prompt: 'Which of your selected strategies has worked best?',
+		visible: (a) => Array.isArray(a.C1) && a.C1.length > 1,
+		options: (a) => {
+			const selected = Array.isArray(a.C1) ? a.C1 : [];
+			const picked = C1_OPTIONS.filter((o) => selected.includes(o.value));
+			if (selected.includes(OTHER_VALUE)) {
+				const otherText = a['C1__other'];
+				const label = typeof otherText === 'string' && otherText.trim() ? otherText : 'Other';
+				picked.push({ value: OTHER_VALUE, label });
+			}
+			return picked;
+		}
+	},
+	{
+		id: 'C3a',
+		type: 'multi',
+		prompt: 'Why did it work better than your other strategies?',
+		visible: (a) => Array.isArray(a.C1) && a.C1.length > 1,
+		options: opts([
+			'More stable or less volatile',
+			'Better fees or yield',
+			'Less time-intensive to manage',
+			'Simpler to set up and run',
+			'Matched market conditions well'
+		])
 	},
 	{
 		id: 'C4',
@@ -437,6 +476,7 @@ export const MAIN_STEPS: Step[] = [
 	{
 		id: 'G1',
 		type: 'open',
+		optional: true,
 		prompt: 'Forget LP management. What’s the most annoying part of using DeFi generally, for you?'
 	},
 	G2_STEP,
@@ -688,6 +728,7 @@ export const NONLP_STEPS: Step[] = [
 	{
 		id: 'G1',
 		type: 'open',
+		optional: true,
 		prompt: 'What’s the most annoying part of using DeFi generally, for you?'
 	},
 	G2_STEP,
@@ -811,7 +852,7 @@ export const CONTACT_STEPS: Step[] = [
 		id: 'I3',
 		type: 'single',
 		prompt:
-			'Open to a Zoom/Meets follow-up conversation? Everyone who does one is entered in the $100 USDC raffle.',
+			'Open to a Zoom/Meets follow-up conversation? Everyone who completes one is entered in the $100 USDC raffle.',
 		options: opts(['Yes', 'No'])
 	}
 ];

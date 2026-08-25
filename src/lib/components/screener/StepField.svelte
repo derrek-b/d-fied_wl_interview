@@ -68,7 +68,7 @@
 		<div class="field">
 			{#if step.type === 'single'}
 				<SingleSelect
-					options={step.options}
+					options={typeof step.options === 'function' ? step.options(answers) : step.options}
 					value={asString(answers[step.id])}
 					onchange={(v) => (answers[step.id] = v)}
 				/>

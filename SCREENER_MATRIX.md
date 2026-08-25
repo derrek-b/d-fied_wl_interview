@@ -65,13 +65,20 @@ Clicks only. Sort fields.
 **C1.** Which of these strategies have you ever run? (multi, checkbox only)
 `Simple full-range or CPMM pools` / `Concentrated liquidity, managing in and out of range` / `Hedged or delta-neutral positions` / `Lend → borrow → LP loops` / `Leveraged LP` / `Active market making` / `Other`
 
-**C2.** What does it actually take to keep the strategies you picked running well — and how often do you have to step in? **[80]**
-_Open only. No taxonomy, and a list here would cap the answer at whatever we already thought of._
+**C2.** What does keeping your positions running well actually involve? (multi, checkbox only)
+`Rebalancing or adjusting ranges` / `Monitoring price or position health` / `Managing gas costs` / `Tracking P&L manually` / `Coordinating across chains or protocols` / `Compounding fees or rewards` / `Other`
 
-> Deliberately avoids "rebalance" or naming any specific maintenance action. A delta-neutral position on a constant-product pool has no range to manage and still needs constant attention. Naming out-of-range management specifically would design the question for one strategy and miss the rest.
+**C2a.** How often do you have to do any of the actions you selected? (single)
+`Daily` / `A few times a week` / `Weekly` / `Monthly or less` / `Rarely`
 
-**C3.** Which of your selected strategies has worked best, and why do you think that was? **[80]**
-_Open only. Required — no longer optional now that it's gated behind C1 having more than one selection, since it now always applies to whoever sees it. Only shown if C1 has more than one selection._
+> Originally one open [80] field. Converted to select once the screener's role shifted from a research instrument to a lean qualification gate ahead of a paid follow-up interview — the narrative depth this used to ask for belongs in that live conversation now, not in the free-entry screener. Splits cleanly into "what" (multi) and "how often" (frequency scale) without losing the two things this question was actually checking.
+
+**C3.** Which of your selected strategies has worked best? (single) — only shown if C1 has more than one selection; options are exactly whichever of C1's picks the respondent checked (their own typed "Other" text if that's one of them), not the full C1 list.
+
+**C3a.** Why did it work better than your other strategies? (multi, checkbox only) — same visibility as C3.
+`More stable or less volatile` / `Better fees or yield` / `Less time-intensive to manage` / `Simpler to set up and run` / `Matched market conditions well` / `Other`
+
+> Same conversion rationale as C2 — the open "why" here duplicated exactly the kind of comparison an interviewer would draw out live.
 
 **C4.** How do you track deployed positions? (multi, checkbox only)
 `DEX interface` / `Block explorer` / `Spreadsheet` / `Third-party dashboard` / `Script, bot, or alert I built` / `I don't really track it` / `Other`
@@ -208,13 +215,15 @@ E3/E4, was considered and rejected — that manufactures answers rather than col
 Exists so a respondent who kills our assumptions can still hand us something. Last, so it doesn't anchor earlier answers.
 
 **G1.** Forget LP management. What's the most annoying part of using DeFi generally, for you?
-_Open only._
+_Open only. Optional._
 
 **G2.** If someone built one thing that made your on-chain life easier, what would it be?
-_Open only._
+_Open only. Optional._
 
 **G3.** Anything we should have asked and didn't?
 _Open only. Optional._
+
+> G1 and G2 were required until the screener's role shifted to a lean qualification gate ahead of a paid follow-up interview — all three are now optional, same as G3 always was.
 
 ---
 
@@ -303,12 +312,12 @@ Every H2 follow-up is gated at 80 characters, same as C/D/E's narrative prompts 
 Deliberately doesn't ask respondents to distinguish a platform from an AI from a human expert — this cohort has never LP'd, so they're very unlikely to have a differentiated opinion about the mechanism, only about whether _someone_ trustworthy is running it. Asked once, at the end, regardless of which reason(s) were selected — this used to be duplicated across the "don't trust myself" and "risk of loss" pages, which worked but meant the signal was only present for people who picked those specific reasons. Asking it once here gives every non-LP respondent the same directly comparable answer.
 
 **G1.** What's the most annoying part of using DeFi generally, for you?
-_Open only._
+_Open only. Optional._
 
 > Same question as the Yes path's G1, minus the "Forget LP management" preamble — that instruction only makes sense for a cohort that's spent 30+ questions deep in LP-specific mechanics. This cohort never was, so there's nothing to tell them to forget.
 
 **G2.** If someone built one thing that made your on-chain life easier, what would it be?
-_Open only._
+_Open only. Optional._
 
 **G3.** Anything we should have asked and didn't?
 _Open only. Optional._
@@ -337,7 +346,7 @@ Validated by format, not just presence — `0x` + 40 hex characters for any EVM 
 
 Tron and Hyperliquid were considered and left out of v1: Tron's addresses are Base58 (`T...`), not the `0x` hex format the rest of "EVM" shares, so it isn't a drop-in addition to this chain list — it would need its own separate address-format branch. Hyperliquid's HyperEVM is technically a normal `0x`-format EVM chain, but was left out on audience grounds (smaller, newer chain relative to Base/Arbitrum/BSC for where this respondent pool is likely to already hold funds), not a technical one — revisit if the actual respondent pool skews toward Hyperliquid-native traders.
 
-**I3.** Open to a Zoom/Meets follow-up conversation? Everyone who does one is entered in the $100 USDC raffle.
+**I3.** Open to a Zoom/Meets follow-up conversation? Everyone who completes one is entered in the $100 USDC raffle.
 `Yes` / `No`
 
 ---
@@ -346,7 +355,7 @@ Tron and Hyperliquid were considered and left out of v1: Tron's addresses are Ba
 
 Sort by depth of written answers first, filters second. A short answer from a whale is worth less than a detailed one from someone running $5K, because Stage 2 is a conversation and we need people who talk.
 
-**Call first.** Substantive C2 or C6. Anyone who built their own tooling at C4. `Yes, but nothing fit` at D1. Anyone who stopped at D4 and gave a real D5c.
+**Call first.** Substantive C6. Anyone who built their own tooling at C4. `Yes, but nothing fit` at D1. Anyone who stopped at D4 and gave a real D5c.
 
 **Call second.** B6 = fund or DAO treasury at any size. Small cohort, different buyer, possibly a different company.
 

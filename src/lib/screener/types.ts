@@ -17,7 +17,8 @@ export type Option = { value: string; label: string };
 
 export type SingleSelectStep = StepBase & {
 	type: 'single';
-	options: Option[];
+	/** A function is used when the option set depends on a prior answer — e.g. "which of these" drawn from a previous multi-select's picks. */
+	options: Option[] | ((answers: Answers) => Option[]);
 };
 
 export type MultiSelectStep = StepBase & {
