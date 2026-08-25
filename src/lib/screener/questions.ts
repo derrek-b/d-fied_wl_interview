@@ -622,6 +622,15 @@ const H2_FOLLOWUPS: Record<string, Step[]> = {
 	// 'other' deliberately has no entry — its free-text specify field is the only follow-up.
 };
 
+/**
+ * True only when H3 is *exactly* 'none' — same exclusivity rule as
+ * usedNoPlatforms above, and for the same reason: a real activity checked
+ * alongside "None of these" is stronger evidence than the catch-all.
+ */
+function hasNoDefiExperience(a: Answers): boolean {
+	return Array.isArray(a.H3) && a.H3.length === 1 && a.H3[0] === 'none';
+}
+
 export const NONLP_STEPS: Step[] = [
 	{
 		id: 'H1',
@@ -632,6 +641,29 @@ export const NONLP_STEPS: Step[] = [
 			'Still considering',
 			'Never really considered it'
 		])
+	},
+	{
+		id: 'H3',
+		type: 'multi',
+		prompt: 'Which of these have you done in DeFi?',
+		options: [
+			...opts([
+				'Staking (native or liquid staking)',
+				'Lending & borrowing',
+				'Yield farming or vaults (not LPing)'
+			]),
+			opt('None of these', 'none')
+		]
+	},
+	{
+		id: 'H3a',
+		type: 'single',
+		prompt: 'Curious to get started, or is DeFi just not something you’re interested in?',
+		visible: hasNoDefiExperience,
+		options: [
+			opt('Curious, just haven’t yet', 'curious'),
+			opt('Not something I’m interested in', 'not_interested')
+		]
 	},
 	{
 		id: 'H2',

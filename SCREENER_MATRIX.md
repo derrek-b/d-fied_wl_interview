@@ -225,6 +225,14 @@ Separate cohort. Checkbox-first for H2, since we know this answer space. Multi-s
 **H1.** Have you considered providing liquidity?
 `Looked into it, decided against` / `Still considering` / `Never really considered it`
 
+**H3.** Which of these have you done in DeFi? (multi)
+`Staking (native or liquid staking)` / `Lending & borrowing` / `Yield farming or vaults (not LPing)` / `Other` / `None of these`
+
+Calibration this path was missing: A1 = No only tells us someone never LP'd, not whether they're DeFi-native and simply skipped LPing, or brand new to DeFi entirely — two very different populations for reading H2's reasons and H4's trust answer. Trading/swapping tokens was deliberately left off — it's close to universal for anyone with a wallet, so including it would make "None of these" rare and dilute the signal.
+
+**H3a.** Curious to get started, or is DeFi just not something you're interested in? — shown only if H3 is _exactly_ "None of these" (a real activity checked alongside it wins, same exclusivity rule as D3/D4).
+`Curious, just haven't yet` / `Not something I'm interested in`
+
 **H2.** Main thing(s) keeping you out? Check all that apply. (multi)
 `Too complicated` / `Too much effort` / `Returns don't justify it` / `Don't trust myself to manage it` / `Don't trust the platforms` / `Risk of losing money on the position` / `Not enough capital to justify gas or fees` / `Don't understand the mechanics well enough to judge the risk` / `Didn't know it was an option` / `Other`
 
